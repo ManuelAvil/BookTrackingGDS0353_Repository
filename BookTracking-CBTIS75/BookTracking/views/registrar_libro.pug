@@ -29,81 +29,47 @@ block content
                 br
                 h5 Datos del libros
                 .row
-                  .col
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Nombre
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='text')
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Autor(es)
-                        .col-sm-10
-                            select.form-select.form-select-sm(aria-label='Default select example')
-                                option(selected='') Elige una opción
-                                option(value='1') One
-                                option(value='2') Two
-                                option(value='3') Three
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Editorial
-                        .col-sm-10
-                            select.form-select.form-select-sm(aria-label='Default select example')
-                                option(selected='') Elige una opción
-                                option(value='1') One
-                                option(value='2') Two
-                                option(value='3') Three
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Lugar de Edición
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='text')
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Fecha de Edición
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='number')
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Año Entrada
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='number')
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Unidades Disponibles
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='number')
-                    
-                  .col
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Total Unidades
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='number')
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Número de Páginas
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='number')
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Número de Inventario
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='number')
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Anaquel Charola
-                        .col-sm-10
-                            select.form-select.form-select-sm(aria-label='Default select example')
-                                option(selected='') Elige una opción
-                                option(value='1') One
-                                option(value='2') Two
-                                option(value='3') Three
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Clasificación
-                        .col-sm-10
-                            select.form-select.form-select-sm(aria-label='Default select example')
-                                option(selected='') Elige una opción
-                                option(value='1') One
-                                option(value='2') Two
-                                option(value='3') Three
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Observaciones
-                        .col-sm-10
-                            input#colFormLabelSm.form-control.form-control-sm(type='text')
-                    
-                .row
-                  .col 
-                    .row.mb-3
-                        label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Descripción
-                        .col-sm-10
-                            textarea#colFormLabelSm.form-control.form-control-sm(type='text')
+                  form(action='/administrar/crear_libro' method='post')
+                    .row
+                      .col
+                        
+                        label.form-label(for='nombre') Nombre:
+                        input#nombre.form-control(type='text' name='nombre' )
+                        label.form-label(for='autor') Autor:
+                        input#autor.form-control(type='text' name='autor' )
+                        label.form-label(for='editorial') Editorial:
+                        input#editorial.form-control(type='text' name='editorial' )
+                        label.form-label(for='lugarEd') Lugar Edición:
+                        input#lugarEd.form-control(type='text' name='lugarEd' )
+                        label.form-label(for='fechaEd') Fecha Edición:
+                        input#fechaEd.form-control(type='text' name='fechaEd' )
+                        label.form-label(for='anioEn') Año Entrada:
+                        input#anioEn.form-control(type='text' name='anioEn' )
+                      .col
+                        label.form-label(for='unidadesD') Unidades Disponibles:
+                        input#unidadesD.form-control(type='number' name='unidadesD' )
+                        label.form-label(for='totalUn') Total Unidades:
+                        input#totalUn.form-control(type='number' name='totalUn' )
+                        label.form-label(for='numPag') No . págs.:
+                        input#numPag.form-control(type='number' name='numPag' )
+                        .row
+                          .col
+                            label.form-label(for='numIn') No. Inventario:
+                            input#numIn.form-control(type='number' name='numIn' )
+                          .col
+                            label.form-label(for='anaquel') Anaquel-charola:
+                            input#anaquel.form-control(type='text' name='anaquel')
+                        .row
+                          .col
+                            label.form-label(for='clasificacion') Clasificación:
+                            input#clasificacion.form-control(type='text' name='clasificacion' )
+                          
+                        label.form-label(for='observaciones') Observaciones:
+                        input#observaciones.form-control(type='text' name='observaciones')
+                        label.form-label(for='descripcion') Descripción:
+                        input#descripcion.form-control(type='text' name='descripcion')
+                        .row
+                          .col(style='text-align: right; padding-top: 10px')
+                            button.btn(href='#') Cancelar
+                            button.btn.btn-danger(type='submit')
+                              | Registar      

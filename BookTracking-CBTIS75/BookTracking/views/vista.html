@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/administrar/crear_libro" method="post">
+        <div class="col-8">
+            <div class="container-fluid"><br />
+                <h5>Datos del libros</h5>
+                <div class="row">
+                    <div class="col">
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Nombre</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="nombre" type="text" /></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Autor(es)</label>
+                            <div class="col-sm-10"><select class="form-select form-select-sm" id="autor" aria-label="Default select example">
+                                    <option selected="">Elige una opción</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Editorial</label>
+                            <div class="col-sm-10"><select class="form-select form-select-sm" id="editorial" aria-label="Default select example">
+                                    <option selected="">Elige una opción</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Lugar de Edición</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="lugarEdicion" type="text" /></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Fecha de Edición</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="fechaEdicion" type="number" /></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Año Entrada</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="yearEntrada" type="number" /></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Unidades Disponibles</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="unidadesDisponibles" type="number" /></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Total Unidades</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="totalUnidades" type="number" /></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Número de Páginas</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="numPaginas" type="number" /></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Número de Inventario</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="numInventario" type="number" /></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Anaquel Charola</label>
+                            <div class="col-sm-10"><select class="form-select form-select-sm" id="anaquel" aria-label="Default select example">
+                                    <option selected="">Elige una opción</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Clasificación</label>
+                            <div class="col-sm-10"><select class="form-select form-select-sm" id="clasificacion" aria-label="Default select example">
+                                    <option selected="">Elige una opción</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select></div>
+                        </div>
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Observaciones</label>
+                            <div class="col-sm-10"><input class="form-control form-control-sm" id="observaciones" type="text" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row mb-3"><label class="col-sm-2 col-form-label col-form-label-sm" for="colFormLabelSm">Descripción</label>
+                            <div class="col-sm-10"><textarea class="form-control form-control-sm" id="descripcion" type="text"></textarea></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>

@@ -2,12 +2,13 @@ var express = require("express");
 var router = express.Router();
 
 var user_controller = require("../controllers/alumnoController");
+var libro_controller = require("../controllers/libroController");
 //Modulos Controladores Aqui
 
 //Rutas de Administrador
 
 router.get("/", function (req, res, next) {
-  res.render("admin");
+  res.render("login");
 });
 
 router.get("/libros", function (req, res, next) {
@@ -20,6 +21,9 @@ router.get("/solicitudes", function (req, res, next) {
 
 //Se llama al controlador para crear
 router.post("/crear", user_controller.crear);
+
+//Se llama al controlador para crear libro
+router.post("/crear_libro",libro_controller.crear);
 
 //Ruta para eliminar
 router.get("/eliminar/:id", user_controller.eliminar);
@@ -34,9 +38,7 @@ router.get("/leer_qr", function (req, res, next) {
   res.render("leer_qr");
 });
 
-router.get("/admin_buscar", function (req, res, next) {
-  res.render("admin_buscar");
-});
+router.get("/admin_buscar", libro_controller.mostar);
 
 router.get("/leer_qr", function (req, res, next) {
   res.render("leer_qr");
