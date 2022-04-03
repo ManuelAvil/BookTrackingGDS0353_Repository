@@ -16,7 +16,7 @@ block content
                   form(action='/administrar/crear_foto', method='post', enctype="multipart/form-data")
                     .col
                       .input-group.file
-                        input#foto.form-control(type='file',accept='image/png,image/jpeg,image/jpg,image/webp', name="foto")
+                        input#foto.form-control(type='file',accept='image/png,image/jpeg,image/jpg,image/webp', name="foto" required='')
                         button#inputGroupFileAddon04.ov-btn-grow-spin.guardar(type='subtmit') Guardar
 
             .col-8
@@ -28,7 +28,7 @@ block content
                     .row
                       .col
                         label.form-label(for='nombre') Nombre:
-                        input#nombre.form-control(type='text' name='nombre' )
+                        input#nombre.form-control(type='text' name='nombre' required='')
                         label.form-label(for='autor') Autor:
                         input#autor.form-control(type='array' name='autor' requerid='')
                         label.form-label(for='editorial') Editorial:
@@ -54,12 +54,12 @@ block content
                             input#anaquel.form-control(type='text' name='anaquel' required='')
                           .col
                             label.form-label(for='clasificacion') Clasificación:
-                            input#clasificacion.form-control(type='text' name='clasificacion')
+                            input#clasificacion.form-control(type='text' name='clasificacion' required='')
                         
                         label.form-label(for='observaciones') Observaciones:
-                        textarea#observaciones.form-control(type='text' name='observaciones')
+                        textarea#observaciones.form-control(type='text' name='observaciones'required='')
                         label.form-label(for='descripcion') Descripción:
-                        textarea#descripcion.form-control(type='text' name='descripcion')
+                        textarea#descripcion.form-control(type='text' name='descripcion'required='')
                         
                         .row
                           .col(style='text-align: right; padding-top: 10px')
