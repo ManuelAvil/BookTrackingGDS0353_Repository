@@ -27,7 +27,7 @@ block content
                   form(action='/administrar/crear_libro' method='post')
                     .row
                       .col
-                        label.form-label(for='nombre') Nombre:
+                        label.form-label(for='nombre'required='') Nombre:
                         input#nombre.form-control(type='text' name='nombre' required='')
                         label.form-label(for='autor') Autor:
                         input#autor.form-control(type='array' name='autor' requerid='')
