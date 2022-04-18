@@ -87,7 +87,7 @@ libroController.crear = (req, res) => {
   });
 };
 
-//Consultar administrador
+//Consultar detalle libro administrador
 libroController.detalle = (req, res) => {
   const id = req.params.id;
   Libro.find({ _id: id }).exec((err, Libro) => {
@@ -120,7 +120,7 @@ libroController.detalleHistorialLibro = (req, res) => {
   });
 };
 
-//Consultar libro
+//Consultar detalle libro alumnos
 libroController.detalleLibro = (req, res) => {
   const id = req.params.id;
   console.log(id)
@@ -225,27 +225,6 @@ libroController.eliminar = (req, res) => {
   });
 };
 
-//actualizacion Unidades_Disponibles
-libroController.actualizarUnidadesAlumno = (req, res) => {
-  const id = req.params.id;
-
-  Libro.updateOne(
-    { "_id": id },
-    {
-      $inc: {
-        Unidades_Disponibles: -1,
-      },
-    }
-  ).exec((err, Libro) => {
-    if (err) {
-      console.log("Error al actualizar el libro:", err);
-      return;
-    }
-    console.log("The INDEX");
-    console.log(Libro);
-    res.redirect("/alumnos/historial_prestamos");
-  });
-};
 
 //actualizacion Unidades_Disponibles por denegacion
 libroController.actualizarUnidades_denegadas = (req, res) => {

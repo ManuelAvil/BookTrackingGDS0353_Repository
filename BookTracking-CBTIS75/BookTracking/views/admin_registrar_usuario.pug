@@ -68,7 +68,7 @@ block content
                     option Mujer
                   label.form-label(for='sexo') Sexo:
                 .form-floating.mb-3
-                  input#curp.form-control.form-control-sm(type='text' name='curp' required='' maxlength="18" minlength="5")
+                  input#curp.form-control.form-control-sm(type='text' name='curp' required='' )
                   label.form-label(for='curp') CURP:
                 .row
                   .col
@@ -99,7 +99,7 @@ block content
                   .col#btnssele
                     a.btn.btn-danger(href='/administrar') 
                       | Cancelar
-                    button.btn.btn-success(type='submit' onclick='registar()')
+                    button.btn.btn-success(type='submit' )
                       | Registrar
 
       #resgistrar_usuarios.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')

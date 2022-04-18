@@ -26,7 +26,7 @@ alumnoController.alumno_verify = function (req,res){
         Alumno.find({'Username': usuario}, function(error, results){
             console.log(results);
 
-            let passw='';
+             let passw="";
             results.forEach(e => {
                 passw= e.Password;
             });
@@ -158,6 +158,7 @@ alumnoController.crear = (req, res) => {
                     console.log(data.qr)
 
                     //
+                    qrcode=qrcode.toString();
                     console.log("Y hasheada es: " + password);
                     const alumno = new Alumno({
                         _id: req.body.numControl,
