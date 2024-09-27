@@ -1,0 +1,166 @@
+extends layout
+
+block content
+  .row#gbt
+    .col
+      .btn-group(role='group' aria-label='Navs')
+        a.btn.btn-primary#pg(type='button' href='/administrar') General   
+          i.bi.bi-caret-right-fill
+        a.btn.btn-primary#pg(type='button' href='/administrar/registrar_usuario') Registrar Usuario   
+          i.bi.bi-caret-right-fill
+        a.btn.btn-primary#pg(type='button' href='/administrar/lista_usuario') Ver lista de alumnos   
+          i.bi.bi-caret-right
+        button.btn.btn-primary#pgf(type='button' disabled) Editar perfil  
+  .container-fluid
+    each alumno in Alumno
+      .row
+        .col
+          .container-fluid
+            .row.barraresultado
+              .col Resultados: de busqueda
+            .row.rowtabla
+              form(action='/administrar/usuario/editar' method='post')
+                .row
+                  .col-md-6
+                    br
+                    |
+                    .form-floating.mb-3
+                      input#numControl.form-control.form-control-sm(type='text' name='numControl' required='' pattern="[0-9]{14}" value=alumno._id)
+                      label.form-label(for='numControl') No. de Control
+                    .form-floating.mb-3
+                      input#nombre.form-control.form-control-sm(type='text' name='nombre' required='' pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ \s]+" value=alumno.Nombre_s)
+                      label.form-label(for='nombre') Nombre:
+                    .form-floating.mb-3
+                      input#apPaterno.form-control.form-control-sm(type='text' name='apPaterno' required='' pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ \s]+" value=alumno.Apellido_Paterno)
+                      label.form-label(for='apPaterno') Apellido paterno:
+                    .form-floating.mb-3
+                      input#apMaterno.form-control.form-control-sm(type='text' name='apMaterno' required='' pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ \s]+" value=alumno.Apellido_Materno)
+                      label.form-label(for='apMaterno') Apellido Materno:
+                    .form-floating.mb-3
+                      input#grupo.form-control.form-control-sm(type='text' name='grupo' required=''  value=alumno.Grupo)
+                      label.form-label(for='grupo') Grupo:
+                    .form-floating.mb-3
+                      select#especialidad.form-control.form-control-sm(name='especialidad' required='' value=alumno.Carrera_Tecnica)
+                         if alumno.Carrera_Tecnica =="Administración de Recursos Humanos"
+                           option #{alumno.Carrera_Tecnica}
+                           option Contabilidad
+                           option Logística
+                           option Electricidad
+                           option Mecánica Industrial
+                           option Programación
+                           option Soporte y Mantenimiento a Equipo de Cómputo
+                         else 
+                         if alumno.Carrera_Tecnica =="Contabilidad"
+                           option #{alumno.Carrera_Tecnica}
+                           option Administración de Recursos Humanos
+                           option Logística
+                           option Electricidad
+                           option Mecánica Industrial
+                           option Programación
+                           option Soporte y Mantenimiento a Equipo de Cómputo
+                         else 
+                         if alumno.Carrera_Tecnica =="Logística"
+                           option #{alumno.Carrera_Tecnica}
+                           option Administración de Recursos Humanos
+                           option Contabilidad
+                           option Electricidad
+                           option Mecánica Industrial
+                           option Programación
+                           option Soporte y Mantenimiento a Equipo de Cómputo
+                         else 
+                         if alumno.Carrera_Tecnica =="Electricidad"
+                           option #{alumno.Carrera_Tecnica}
+                           option Administración de Recursos Humanos
+                           option Contabilidad
+                           option Logística
+                           option Mecánica Industrial
+                           option Programación
+                           option Soporte y Mantenimiento a Equipo de Cómputo
+                         else 
+                         if alumno.Carrera_Tecnica =="Mécanica Industrial"
+                           option #{alumno.Carrera_Tecnica}
+                           option Administración de Recursos Humanos
+                           option Contabilidad
+                           option Logística
+                           option Electricidad
+                           option Programación
+                           option Soporte y Mantenimiento a Equipo de Cómputo
+                         else 
+                         if alumno.Carrera_Tecnica =="Programación"
+                           option #{alumno.Carrera_Tecnica}
+                           option Administración de Recursos Humanos
+                           option Contabilidad
+                           option Logística
+                           option Electricidad
+                           option Mécanica Industrial
+                           option Soporte y Mantenimiento a Equipo de Cómputo
+                         else 
+                         if alumno.Carrera_Tecnica =="Soporte y Mantenimiento a Equipo de Cómputo"
+                           option #{alumno.Carrera_Tecnica}
+                           option Administración de Recursos Humanos
+                           option Contabilidad
+                           option Logística
+                           option Electricidad
+                           option Mécanica Industrial
+                           option Programación
+                      label.form-label(for='especialidad') Especialidad:
+                    .form-floating.mb-3
+          
+                      select#turno.form-control.form-control-sm(name='turno' required=''  value=alumno.Turno)
+                         if alumno.Turno =="Matutino"
+                           option #{alumno.Turno}
+                           option Vespertino
+                         else
+                           option #{alumno.Turno}
+                           option Matutino
+                      label.form-label(for='turno') Turno:
+                  .col-md-6
+                    br
+                    |
+                    .form-floating.mb-3
+                      input#generacion.form-control.form-control-sm(type='text' name='generacion' required=''  value=alumno.Generacion)
+                      label.form-label(for='generacion') Generaci&oacute;n:
+                    .form-floating.mb-3
+                      select#sexo.form-control.form-control-sm(name='sexo' required=''  value=alumno.Genero)
+                        if alumno.Genero =="Hombre"
+                          option #{alumno.Genero}
+                          option Mujer
+                        else
+                          option #{alumno.Genero}
+                          option Hombre
+                      label.form-label(for='sexo') Sexo:
+                    .form-floating.mb-3
+                      input#curp.form-control.form-control-sm(type='text' name='curp' required='' oninput='validarInput(this)'  value=alumno.CURP)
+                      label.form-label(for='curp') CURP:
+                      pre#resultado.
+                    .row
+                      .col
+                        .form-floating.mb-3
+                          input#correo1.form-control.form-control-sm(type='email' name='correo1' required=''  value=alumno.Correo_Electronico_1)
+                          label.form-label(for='correo1') Correo 1:
+                      .col
+                        .form-floating.mb-3
+                          input#correo2.form-control.form-control-sm(type='email' name='correo2' required='' value=alumno.Correo_Electronico_2)
+                          label.form-label(for='correo2') Correo 2:
+                    .row
+                      .col
+                        .form-floating.mb-3
+                          input#lada.form-control.form-control-sm(type='text' name='lada' required='' pattern="[0-9]{3}" value=alumno.Clave_Lada)
+                          label.form-label(for='lada') Lada:
+                      .col
+                        .form-floating.mb-3
+                          input#telefonoFijo1.form-control.form-control-sm(type='tel' name='telefonoFijo1' required='' pattern="[0-9]{7}" value=alumno.Telefono_de_contacto_fijo_1)
+                          label.form-label(for='telefonoFijo1') Telefono fijo 1:
+                    .form-floating.mb-3
+                      input#telefonoFijo2.form-control.form-control-sm(type='tel' name='telefonoFijo2' required='' pattern="[0-9]{7}" value=alumno.Telefono_de_contacto_fijo_2)
+                      label.form-label(for='telefonoFijo2') Telefono fijo 2:
+                    .form-floating.mb-3
+                      input#telefonoMovil.form-control.form-control-sm(type='tel' name='telefonoMovil' required='' pattern="[0-9]{10}" value=alumno.Telefono_movil_celular)
+                      label.form-label(for='telefonoMovil') Telefono Movil:
+                    .row
+                      .col#btnssele
+                        a.btn.btn-danger(href='/administrar/lista_usuario') 
+                          | Cancelar
+                        button.btn.btn-success(type='submit')
+                          | Editar
+    script(src="/js/curp.js")

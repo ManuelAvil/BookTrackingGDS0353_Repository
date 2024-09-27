@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    .container-fluid.botonera#btnragnral
+      .row.hijo 
+        .col
+          a.ov-btn-grow-spin(href= '/alumnos/buscar_solicitar_libro')
+            img(src='../images/investigacion.png' alt='Investigacion')
+            br
+            | Buscar y solicitar libro
+        .col
+          a.ov-btn-grow-spin(href='/alumnos/historial_prestamos')
+            img(src='../images/libros.png' alt='Libros')
+            br
+            | Entregas y solicitudes
+        .col
+          a.ov-btn-grow-spin(href='/alumnos/ver_mi_qr')
+            img(src='../images/qruser.png' 
+            alt='x')
+            br
+            | Ver mi QR
+      .row 
+        p 

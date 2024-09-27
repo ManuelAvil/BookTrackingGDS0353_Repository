@@ -1,0 +1,98 @@
+extends layout
+
+block content
+  .row#gbt
+    .col
+      .btn-group(role='group' aria-label='Navs')
+        a.btn.btn-primary#pg(type='button' href='/administrar') General   
+          i.bi.bi-caret-right-fill
+        a.btn.btn-primary#pg(type='button' href='/administrar/solicitudes') Solicitudes   
+          i.bi.bi-caret-right
+        button.btn.btn-primary#pgf(type='button' disabled) Ver detalles de Libro    
+  .container-fluid
+    each libro in Libro
+      .row
+        .col
+          .container-fluid
+            .row.barraresultado
+              .col Detalles de Libro:
+            .row.rowtabla
+              .col#one
+                .row
+                br
+                |
+                h5 Datos del libro
+                br
+                |
+                .container#portimg
+                  .row
+                    img.dic(src='/images/diccionario.png')                  
+              .col#dates
+                br
+                |
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='text' readonly value= libro.Nombre)
+                  label(for='colFormLabelSm') Nombre
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='text' readonly value= libro.Autor.join())
+                  label(for='colFormLabelSm') Autor(es)
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='text' readonly value= libro.Editorial)
+                  label(for='colFormLabelSm') Editorial
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='text' readonly value= libro.Lugar_Edicion)
+                  label(for='colFormLabelSm') Lugar de Edición
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='number' readonly value= libro.Fecha_Edicion)
+                  label(for='colFormLabelSm') Fecha de Edición
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='number' readonly value= libro.Año_Entrada)
+                  label(for='colFormLabelSm') Año Entrada
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='number' readonly value= libro.Unidades_Disponibles)
+                  label(for='colFormLabelSm') Unidades Disponibles
+              .col#dates
+                br
+                |
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='number' readonly value= libro.Total_Unidades)
+                  label(for='colFormLabelSm') Total Unidades
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='number' readonly value= libro.Num_Pag)
+                  label(for='colFormLabelSm') Número de Páginas
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='number' readonly value= libro.Num_Inventario)
+                  label(for='colFormLabelSm') Número de Inventario
+                .row 
+                  .col(style='min-width:175px')
+                    .form-floating.mb-3
+                      input#colFormLabelSm.form-control.form-control-sm(type='text' readonly value= libro.Anaquel_Charola)
+                      label(for='colFormLabelSm') Anaquel Charola
+                  .col(style='min-width:175px')
+                    .form-floating.mb-3
+                      input#colFormLabelSm.form-control.form-control-sm(type='text' readonly value= libro.Clasificacion)
+                      label(for='colFormLabelSm') Clasificación
+                .form-floating.mb-3
+                  input#colFormLabelSm.form-control.form-control-sm(type='text' readonly value= libro.Observaciones)
+                  label(for='colFormLabelSm') Observaciones
+                .form-floating.mb-3
+                  textarea#descripcion.form-control(type='text' name='descripcion' readonly value=libro.Descripcion)
+                  label(for='colFormLabelSm') Descripción
+                .row#alrops 
+                  .col
+                  .col#btnssele
+                    if status != "En Espera"
+                      .alert.alert-info(style='width:300px;' role='alert')
+                        | Esta solicitud ya fue procesada
+                    else
+                      -var url = "/administrar/aceptar_prestamo/" + id_sol
+                      a.btn.btn-success.opciones(type='button', href=url)
+                        | Aceptar
+                  .col#btnssele
+                    if status != "En Espera" 
+                      a.btn.btn-danger.opciones(type='button' href='/administrar/solicitudes')
+                        | Regresar
+                    else
+                      -var url1 = "/administrar/denegar_prestamo/" + id_sol
+                      a.btn.btn-danger.opciones(type='button', href=url1) 
+                        | Denegar
